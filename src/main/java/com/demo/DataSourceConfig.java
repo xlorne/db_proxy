@@ -21,7 +21,7 @@ public class DataSourceConfig {
     }
 
     private void reloadDataSource(){
-        String [] names = configHelper.getStringArrayValue("db.name");
+        String [] names = configHelper.getStringValue("db.name").split(",");
         for(String name:names){
             DruidDataSource dataSource = new DruidDataSource();
             dataSource.setUrl(configHelper.getStringValue(String.format("%s.datasource.url",name)));
